@@ -11,4 +11,10 @@ public interface ShampooService {
     List<Shampoo> selectBySizeAndLabelId(String size, Long id);
 
     List<Shampoo> selectMoreExpensiveByPrice(Double price);
+
+    int selectCountByPriceLessThan(Double price);
+
+    List<Shampoo> selectByIngredients(List<String> ingredientNameList);
+
+    List<Shampoo> selectByIngredientSizeLessThan(int number);
 }

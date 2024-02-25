@@ -15,8 +15,21 @@ public class IngredientServiceImpl implements IngredientService {
     protected IngredientServiceImpl(IngredientRepository ingredientRepository) {
         this.ingredientRepository = ingredientRepository;
     }
+
     @Override
     public List<Ingredient> selectByNameStartsWith(String ingredientName) {
         return ingredientRepository.findByNameStartingWith(ingredientName);
     }
+
+    @Override
+    public List<Ingredient> selectByNameIn(List<String> ingredientNames) {
+        return ingredientRepository.findByNameInOrderByNameAsc(ingredientNames);
+    }
+
+    @Override
+    public int deleteByName(String name) {
+        return ingredientRepository.deleteByName(name);
+    }
+
+
 }

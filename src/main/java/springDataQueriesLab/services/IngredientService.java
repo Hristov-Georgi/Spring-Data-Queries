@@ -8,5 +8,9 @@ public interface IngredientService {
 
     List<Ingredient> selectByNameStartsWith(String ingredientName);
 
+    List<Ingredient> selectByNameIn(List<String> ingredientNames);
+
+    int deleteByName(String name);
+
 
 }
