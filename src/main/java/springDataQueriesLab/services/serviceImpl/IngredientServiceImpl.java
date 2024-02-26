@@ -5,6 +5,7 @@ import springDataQueriesLab.entities.Ingredient;
 import springDataQueriesLab.repositories.IngredientRepository;
 import springDataQueriesLab.services.IngredientService;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 @Service
@@ -31,5 +32,15 @@ public class IngredientServiceImpl implements IngredientService {
         return ingredientRepository.deleteByName(name);
     }
 
+    @Override
+    public void increaseIngredientsPriceBy10Percent() {
+        ingredientRepository.increasePriceBy10Percents();
+    }
 
+    @Override
+    public void increasePriceOfIngredientsInList(Double percentage, List<String> namesList) {
+        BigDecimal rise = BigDecimal.valueOf(percentage / 100);
+
+        ingredientRepository.increasePriceForListOfIngredients(rise, namesList);
+    }
 }

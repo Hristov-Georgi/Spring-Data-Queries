@@ -24,10 +24,18 @@ public class ConsoleRunner implements CommandLineRunner {
     public void run(String... args) throws Exception {
         Scanner scanner = new Scanner(System.in);
 
+        List<String> list = List.of(scanner.next());
 
+        System.out.println(list);
 
+//        11
+//        double percentage = Double.parseDouble(scanner.nextLine());
+//        List<String> ingredientsNames = List.of(scanner.nextLine().split(", "));
+//
+//        ingredientService.increasePriceOfIngredientsInList(percentage, ingredientsNames);
 
-
+//        10
+//        ingredientService.increaseIngredientsPriceBy10Percent();
 
 //        09
 //        String ingredientName = scanner.nextLine();

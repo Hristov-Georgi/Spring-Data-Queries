@@ -12,5 +12,7 @@ public interface IngredientService {
 
     int deleteByName(String name);
 
+    void increaseIngredientsPriceBy10Percent();
 
+    void increasePriceOfIngredientsInList(Double percentage, List<String> namesList);
 }
