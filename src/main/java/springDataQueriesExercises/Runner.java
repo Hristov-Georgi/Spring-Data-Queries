@@ -30,6 +30,33 @@ public class Runner implements CommandLineRunner {
         Scanner scanner = new Scanner(System.in);
 
 
+
+//        13
+//        int copies = Integer.parseInt(scanner.nextLine());
+//
+//        int deletedBooks = bookService.deleteByCopiesLessThan(copies);
+//        System.out.println(deletedBooks + " books were deleted from database");
+
+//        12
+//        String date = scanner.nextLine();
+//        int copies = Integer.parseInt(scanner.nextLine());
+//
+//        int updatedBooks = bookService.addCopiesAfterReleaseDate(date, copies);
+//
+//        System.out.printf("%d books are released after %s, so total of %d book copies were added\n",
+//                updatedBooks, date, updatedBooks * copies);
+
+//        11
+//        ReducedBook book = bookService.selectBookByTitleEditionAgeRestrictionPrice("Things Fall Apart");
+//
+//        System.out.printf("%s %s %s %.2f\n", book.getTitle(), book.getEditionType(),
+//                book.getAgeRestriction(), book.getPrice());
+
+
+//        10
+//        long copiesSum = bookService.sumCopiesByAuthorNames("Randy", "Graham");
+//        System.out.println(copiesSum);
+
 //        09
 //        int length = Integer.parseInt(scanner.nextLine());
 //        int booksCount = bookService.countBookWithTitleLongerThan(length);

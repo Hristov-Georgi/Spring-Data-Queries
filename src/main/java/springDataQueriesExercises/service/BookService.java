@@ -3,6 +3,7 @@ package springDataQueriesExercises.service;
 
 import springDataQueriesExercises.entities.Book;
 import springDataQueriesExercises.entities.EditionType;
+import springDataQueriesExercises.notEntity.ReducedBook;
 
 import java.util.List;
 
@@ -25,4 +26,12 @@ public interface BookService {
     List<Book> selectByAuthorLastNameStartingWith(String strPattern);
 
     int countBookWithTitleLongerThan(int length);
+
+    long sumCopiesByAuthorNames(String firstName, String lastName);
+
+    ReducedBook selectBookByTitleEditionAgeRestrictionPrice(String bookTitle);
+
+    int addCopiesAfterReleaseDate(String releaseDate, int copies);
+
+    int deleteByCopiesLessThan(int copies);
 }

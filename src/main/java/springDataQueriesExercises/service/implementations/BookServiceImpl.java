@@ -1,18 +1,22 @@
 package springDataQueriesExercises.service.implementations;
 
 
+import net.bytebuddy.asm.Advice;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import springDataQueriesExercises.entities.AgeRestriction;
 import springDataQueriesExercises.entities.Book;
 import springDataQueriesExercises.entities.EditionType;
+import springDataQueriesExercises.notEntity.ReducedBook;
 import springDataQueriesExercises.repositories.BookRepository;
 import springDataQueriesExercises.service.BookService;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeFormatterBuilder;
 import java.util.List;
+import java.util.Locale;
 import java.util.stream.Collectors;
 
 @Service
@@ -95,5 +99,32 @@ public class BookServiceImpl implements BookService {
     @Override
     public int countBookWithTitleLongerThan(int length) {
         return bookRepository.countBooksWithTitleLongerThan(length);
+    }
+
+    @Override
+    public long sumCopiesByAuthorNames(String firstName, String lastName) {
+        return bookRepository.sumCopiesByAuthorFirstNameIsAndAuthorLastNameIs(firstName, lastName);
+    }
+
+    @Override
+    public ReducedBook selectBookByTitleEditionAgeRestrictionPrice(String bookTitle) {
+        return bookRepository.findBookByTitleEditionAgeRestrictionPrice(bookTitle);
+    }
+
+    @Override
+    public int addCopiesAfterReleaseDate(String releaseDate, int copies) {
+        DateTimeFormatter formatter = new DateTimeFormatterBuilder()
+                .parseCaseInsensitive()
+                .appendPattern("dd MMM yyyy")
+                .toFormatter(Locale.US);
+
+        LocalDate date = LocalDate.parse(releaseDate, formatter);
+
+        return bookRepository.updateBooksByAddingCopiesAfterReleaseDate(date, copies);
+    }
+
+    @Override
+    public int deleteByCopiesLessThan(int copies) {
+        return bookRepository.deleteByCopiesLessThan(copies);
     }
 }
